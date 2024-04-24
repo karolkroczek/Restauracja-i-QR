@@ -1,0 +1,20 @@
+<nav class="bg-secondary text-white p-5 flex flex-row shadow-sm">
+  <div class="text-white text-2xl select-none cursor-pointer hover:opacity-60">QR CODE APP</div>
+  <div class="ml-auto flex flex-row gap-5 text-lg ">
+    
+    <div routerLink="/order-list" routerLinkActive="active" ariaCurrentWhenActive="page" class="cursor-pointer hover:text-pink select-none">
+      Lista Zamówień
+    </div>
+    
+    <div routerLink="/qr-list" routerLinkActive="active" ariaCurrentWhenActive="page" class="cursor-pointer hover:text-pink select-none" >
+      Wygenerowane kody QR
+    </div>
+
+  </div>
+</nav>
+
+<div class="bg-primary">
+  
+  <router-outlet></router-outlet>
+  
+</div>

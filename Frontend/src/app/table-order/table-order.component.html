@@ -1,0 +1,54 @@
+<div class=" text-white bg-secondary p-4 m-4 rounded-md h-96 max-h-96 overflow-scroll shadow-md">
+    <div class="text-2xl">
+        Twoje zamówienie Stolik {{tableId}}
+        <div class=" flex items-center justify-between w-full">
+    
+            <div class="text-lg">Wartość: {{fullPrice}} PLN</div>
+            <div (click)="endOrder()" class="p-4 bg-pink text-white cursor-pointer select-none rounded-md text-lg ">Zakończ</div>
+        </div>
+    </div>
+    <div class="flex w-full flex-col justify-between items-left px-8 py-4">
+    <div class="" *ngFor="let orderedProduct of orderList">
+        <div class="text-xl">{{orderedProduct.name}}</div>
+    </div>
+    </div>
+</div>
+<div class=" text-white bg-secondary p-4 m-4 rounded-md shadow-md">
+    <div class="text-xl">
+        Menu
+        <div class=" italic">Dania Głowne</div>
+        <div *ngFor="let product of basicProducts " class=" pl-4 flex flex-col gap-7 mt-2">
+            <div class="flex gap-7">
+                <div>
+                    {{product.name}}
+                </div>
+                <div class="italic">
+                    {{product.price}} PLN
+                </div>
+                <div class="ml-auto ">
+                    <div class="ml-auto px-2 cursor-pointer select-none bg-pink text-white" (click)="addToOrder(product)">+</div>
+                    
+                </div>
+            </div>
+
+        </div>
+        <div class=" italic">Napoje</div>
+        <div *ngFor="let product of drinkProducts " class=" pl-4 flex flex-col gap-7 mt-2">
+            <div class="flex gap-7">
+                <div>
+                    {{product.name}}
+                </div>
+                <div class="italic">
+                    {{product.price}} PLN
+                </div>
+                <div class="ml-auto ">
+                    <div class="ml-auto px-2 cursor-pointer select-none bg-pink text-white" (click)="addToOrder(product)">+</div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+</div>
