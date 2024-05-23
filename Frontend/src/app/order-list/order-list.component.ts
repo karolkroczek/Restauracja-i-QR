@@ -11,6 +11,7 @@ import { product } from '../product';
   styleUrl: './order-list.component.css'
 })
 export class OrderListComponent implements OnInit {
+  
 orderList:product[] = [];
 activeOrders:Array<any> = [];
 constructor(private router:ActivatedRoute, private http:HttpClient){}
@@ -19,7 +20,7 @@ ngOnInit(): void {
    for(let i=0;i<5;i++){
       this.http.get("http://localhost:8080/main/order/"+i).subscribe(res=>{
         if(res != null){
-          this.activeOrders[i] = res;
+          this.activeOrders[i] = res.valueOf();
         }
       })
    }

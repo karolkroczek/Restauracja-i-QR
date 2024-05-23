@@ -1,10 +1,36 @@
-<div class=" text-white bg-secondary p-4 m-4 rounded-md">
+<div class=" text-white bg-secondary p-4 m-4 rounded-md shadow-md">
     <div class="text-2xl">
         Lista Zamówień
     </div>
+    @if (activeOrders.length>0) {
+        @for (order of activeOrders; track $index) {
+            <div class="bg-primary bg-opacity-50 rounded-md mt-4 p-5">
+                <div class="text-xl">Stolik {{$index}}</div>
+                @if (!order) {
+                    <div>Puste zamowienie</div>
+                }
+                @else {
 
-    <div>
-        Tutaj pojawi sie lista zamowien
-    </div>
+                    @for (dish of order.dishList; track $index) {
+                        <div>{{dish.name}}</div>
+                    }
+                    <div class="flex flex-row items-center">
+                        <div class="text-xl">
+                            Łączna kwota: {{order.totalValue}}
+                        </div>
+                        <div class="p-4 text-right cursor-pointer select-none w-fit ml-auto bg-pink hover:bg-opacity-80">Zakoncz zamowienie</div>
+                    </div>
+                }
+            </div>
+        }
+     <!-- <div>
+         Tutaj pojawi sie lista zamowien
+     </div> -->
+    }@else {
+        <div>
+            Nie ma żadnych zamówień
+        </div>
+    }
+
 
 </div>
