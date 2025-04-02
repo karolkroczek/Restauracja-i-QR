@@ -41,7 +41,7 @@ export class TableOrderComponent implements OnInit {
     }
     this.http.post("http://localhost:8080/main/order/"+this.tableId,this.orderList).subscribe(
       e=>{
-        console.log("Zakonczono wysylanie zamowienia")
+        alert("Założono zamówienie!")
         this.fullPrice =0;
         this.orderList = []
       }

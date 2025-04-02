@@ -7,18 +7,19 @@
             <div class="bg-primary bg-opacity-50 rounded-md mt-4 p-5">
                 <div class="text-xl">Stolik {{$index}}</div>
                 @if (!order) {
-                    <div>Puste zamowienie</div>
+                    <div>Brak zamówień</div>
                 }
                 @else {
 
                     @for (dish of order.dishList; track $index) {
                         <div>{{dish.name}}</div>
+                        
                     }
                     <div class="flex flex-row items-center">
                         <div class="text-xl">
                             Łączna kwota: {{order.totalValue}}
                         </div>
-                        <div class="p-4 text-right cursor-pointer select-none w-fit ml-auto bg-pink hover:bg-opacity-80">Zakoncz zamowienie</div>
+                        <div (click)="handleClick($index)" class="p-4 text-right cursor-pointer select-none w-fit ml-auto bg-pink hover:bg-opacity-80">Zakoncz zamowienie</div>
                     </div>
                 }
             </div>

@@ -27,5 +27,11 @@ ngOnInit(): void {
    console.log(this.activeOrders)
   }
 
+  handleClick(tableId:number):void{
+    this.http.delete(`http://localhost:8080/main/order/${tableId}`).subscribe(()=>{
+      alert(`Zakończono zamówienie numer ${tableId}`)
+    }
+    )
+  }
 
 }
