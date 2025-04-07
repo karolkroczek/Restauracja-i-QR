@@ -11,22 +11,19 @@
                 }
                 @else {
 
-                    @for (dish of order.dishList; track $index) {
-                        <div>{{dish.name}}</div>
-                        
+                    @for (dish of countProducts(order.dishList); track $index) {
+                        <div>{{dish.name}} x {{dish.count}}</div>
                     }
                     <div class="flex flex-row items-center">
                         <div class="text-xl">
-                            Łączna kwota: {{order.totalValue}}
+                            Łączna kwota: {{order.totalValue}} zł
                         </div>
                         <div (click)="handleClick($index)" class="p-4 text-right cursor-pointer select-none w-fit ml-auto bg-pink hover:bg-opacity-80">Zakoncz zamowienie</div>
                     </div>
                 }
             </div>
         }
-     <!-- <div>
-         Tutaj pojawi sie lista zamowien
-     </div> -->
+
     }@else {
         <div>
             Nie ma żadnych zamówień

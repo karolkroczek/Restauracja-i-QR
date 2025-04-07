@@ -34,4 +34,19 @@ ngOnInit(): void {
     )
   }
 
+  countProducts(listaProduktow:Array<product>):Array<{name:string,count:number}> {
+    const wynik: { [key: string]: number } = {};
+  
+    listaProduktow.forEach(produkt => {
+      if (wynik[produkt.name]) {
+        wynik[produkt.name]++;
+      } else {
+        wynik[produkt.name] = 1;
+      }
+    });
+  
+    return Object.entries(wynik).map(([name, count]) => ({ name, count }));
+  }
+  
+
 }
